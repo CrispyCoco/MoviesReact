@@ -38,7 +38,7 @@ class Card extends Component {
               atque.
             </p>
           </section>
-          <a href="">Ver más</a>
+          <a href="vhuv">Ver más </a>
         </main>
       </article>
     );
