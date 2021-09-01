@@ -1,4 +1,5 @@
 import React, {Component} from "react"
+import './footer.css'
 
 class Footer extends Component{
     constructor(){
@@ -11,9 +12,9 @@ class Footer extends Component{
         return( 
             <footer>
                 <ul className="team">
-                    <li>Nombre integrante 1</li>
-                    <li>Nombre integrante 2</li>
-                    <li>Nombre integrante 3</li>
+                    <li>Joaquin Gomez Rodriguez</li>
+                    <li>Catalina Rosella</li>
+                    <li>Martina Triulzi</li>
                 </ul>
             </footer>
         )

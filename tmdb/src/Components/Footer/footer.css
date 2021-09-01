@@ -1,0 +1,21 @@
+footer{
+    display: flex;
+    height:60px;
+    background-color: black;
+    align-items: center;
+    margin-top: 60px;
+}
+
+footer ul{
+    list-style-type: none;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+
+footer ul li{
+    color: rgb(223, 0, 231);
+    font-size: 20px;
+}

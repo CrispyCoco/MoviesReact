@@ -1,0 +1,47 @@
+.card{
+    width:30%;
+    margin:10px 0;
+    background-color:rgba(57, 55, 63, 0.445);
+    border-radius: 10px;
+    padding:10px 10px;
+
+}
+.card:hover{
+    background-color:rgba(87, 84, 95, 0.445);
+
+}
+.navigation{
+    height:20px;
+    display:flex;
+    justify-content: space-between;
+    margin-bottom: 6px
+}
+
+.navigation i{
+    width:20px;
+}
+
+.card img{
+    width: 80%;
+}
+.card h3{
+    color:white;
+}
+
+.card p{
+    color: rgb(177, 177, 177);
+}
+
+.aditional-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.more {
+    color: rgb(223, 0, 231) !important;
+}
+.more:hover{
+    cursor: pointer;
+}

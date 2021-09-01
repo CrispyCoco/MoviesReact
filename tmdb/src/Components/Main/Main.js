@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Card from "../Card/Card";
+import './main.css'
 
 class Main extends Component {
   constructor() {
@@ -26,7 +27,7 @@ class Main extends Component {
 
   render() {
     return (
-      <main>
+      <main className="container">
         <button type="button">Cargar más tarjetas</button>
         <section className="card-container">
         {this.state.topRated?(

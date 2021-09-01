@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import './card.css'
 class Card extends Component {
   constructor(props) {
     super(props);
@@ -7,13 +7,13 @@ class Card extends Component {
   }
   render() {
     return (
-      <article>
+      <article className="card">
         <section className="navigation">
           <div>
             <i className="fas fa-chevron-left"></i>
             <i className="fas fa-chevron-right"></i>
           </div>
-          <i className="far fa-window-close"></i>
+          <i className="far fa-trash-alt"></i>
         </section>
         <main>
           <img src={`https://image.tmdb.org/t/p/w500${this.props.data.poster_path}`} alt="" />
@@ -23,16 +23,17 @@ class Card extends Component {
           </p>
           <section className="aditional-info">
             <p>
-              {this.props.data.vote_average}
+            <strong>Rating:</strong>  {this.props.data.vote_average}/5
             </p>
             <p>
-              {this.props.data.release_date}
+              <strong>Premiere:</strong>  {this.props.data.release_date}
             </p>
             <p>
-              {this.props.data.popularity}
+            <strong>Popularity:</strong>  {this.props.data.popularity}
             </p>
           </section>
-          <a href="vhuv">Ver más </a>
+          {/* <a href="vhuv">Ver más </a> */}
+          <p className='more' >Ver más</p>
         </main>
       </article>
     );
