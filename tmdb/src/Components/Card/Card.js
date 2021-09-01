@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 class Card extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {};
   }
   render() {
@@ -16,26 +16,20 @@ class Card extends Component {
           <i className="far fa-window-close"></i>
         </section>
         <main>
-          <img src="./img/image-default.png" alt="" />
-          <h3>Título/ Nombre</h3>
+          <img src={`https://image.tmdb.org/t/p/w500${this.props.data.poster_path}`} alt="" />
+          <h3>{this.props.data.title}</h3>
           <p className="description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint cumque
-            velit minus facere laboriosam voluptatem impedit ea unde labore
-            optio eius quis, dignissimos expedita. Culpa, soluta perspiciatis!
-            Sint, laboriosam cum.
+            {this.props.data.overview}
           </p>
           <section className="aditional-info">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse qui
-              atque.
+              {this.props.data.vote_average}
             </p>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse qui
-              atque.
+              {this.props.data.release_date}
             </p>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse qui
-              atque.
+              {this.props.data.popularity}
             </p>
           </section>
           <a href="vhuv">Ver más </a>

@@ -15,7 +15,7 @@ class Main extends Component {
       .then( data => {
           console.log(data);
           this.setState({
-              
+              topRated: data.results 
 
           })
       })
@@ -29,7 +29,11 @@ class Main extends Component {
       <main>
         <button type="button">Cargar más tarjetas</button>
         <section className="card-container">
-          <Card />
+        {this.state.topRated?(
+          this.state.topRated.map((movie, idx) => <Card data={movie} key={movie.title + idx} /> )
+        ): (
+          <h2> Loading... </h2>
+        )}
         </section>
       </main>
     );
