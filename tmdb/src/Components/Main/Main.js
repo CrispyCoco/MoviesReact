@@ -10,7 +10,7 @@ class Main extends Component {
   }
 
   componentDidMount(){
-      fetch('https://developers.themoviedb.org/3/movies/get-top-rated-movies?api_key=cc55526ed6d9221ada36a41066b7c9ea')
+      fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=9dec800f789f21e12920e46fc4882908&page=1')
       .then( response => response.json() )
       .then( data => {
           console.log(data);
