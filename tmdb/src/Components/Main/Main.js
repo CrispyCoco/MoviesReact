@@ -25,13 +25,19 @@ class Main extends Component {
 
   }
 
+  remove(removed){
+    if(this.state.topRated){
+      let newList = this.state.topRated.filter(movie => movie.id !== removed)
+      this.setState({topRated:newList})
+    }
+  }
   render() {
     return (
       <main className="container">
         <button type="button">Cargar más tarjetas</button>
         <section className="card-container">
         {this.state.topRated?(
-          this.state.topRated.map((movie, idx) => <Card data={movie} key={movie.title + idx} /> )
+          this.state.topRated.map((movie, idx) => <Card data={movie} key={movie.title + idx} remove={(removed)=>this.remove(removed)} /> )
         ): (
           <h2> Loading... </h2>
         )}

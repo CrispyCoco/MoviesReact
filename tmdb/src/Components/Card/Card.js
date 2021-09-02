@@ -26,7 +26,7 @@ class Card extends Component {
             <i className="fas fa-chevron-left"></i>
             <i className="fas fa-chevron-right"></i>
           </div>
-          <i className="far fa-trash-alt"></i>
+          <i className="far fa-trash-alt" onClick={()=>this.props.remove(this.props.data.id)}></i>
         </section>
         <main>
           <img
