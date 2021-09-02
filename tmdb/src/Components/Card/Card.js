@@ -34,7 +34,7 @@ class Card extends Component {
             alt=""
           />
           <h3>{this.props.data.title}</h3>
-          <p className="description">{this.props.data.overview}</p>
+          <p className={`${this.state.viewMore ? "a" : "description"}`}>{this.props.data.overview}</p>
           <section
             className={`aditional-info ${
               this.state.viewMore ? "show" : "hide"
