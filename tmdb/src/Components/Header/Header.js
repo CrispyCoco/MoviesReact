@@ -12,8 +12,8 @@ class Header extends Component{
         <header>
             <h1>ChillMe</h1>
             <section>
-                {/* <i className="fas fa-th"></i>
-                <i className="fas fa-align-justify"></i> */}
+                <i className="fas fa-th"></i>
+                <i className="fas fa-align-justify"></i>
                 <form action="" id="search-form">
                     <input type="text" name="search" id="input_buscar" placeholder="Search"/>
                     {/* <button type="submit"><i className="fas fa-search"></i></button> */}

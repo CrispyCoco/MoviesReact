@@ -1,14 +1,29 @@
 .container {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 30px;
 }
-.card-container{
+
+.card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 20px;
-    align-items: center;
+    align-items: flex-start;
     width: 80%;
+
+}
+
+.more-cards {
+    background-color: rgb(223, 0, 231);
+    padding: 10px 25px 10px 18px;
+    border-radius: 30px;
+    color: white;
+    border: none;
+}
+
+.more-cards:hover {
+    background-color: rgb(221, 110, 224) !important;
+    cursor: pointer;
 }
