@@ -55,3 +55,12 @@
     color: rgb(221, 110, 224) !important;
     
 }
+
+
+.show{
+    display: flex;
+}
+
+.hide{
+    display: none;
+}
