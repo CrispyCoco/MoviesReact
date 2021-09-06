@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Card from "../Card/Card";
+import Header from "../Header/Header";
 import "./main.css";
 
 class Main extends Component {
@@ -53,24 +54,45 @@ class Main extends Component {
         .catch((error) => console.log(error));
     }
   }
+
+  searching(searched) {
+    if (this.state.topRated) {
+      let searchedList = this.state.topRated.filter((movie) =>
+        movie.title.toLowerCase().includes(searched.toLowerCase())
+      );
+      console.log(searchedList);
+      this.setState({ topRated: searchedList });
+    }
+  }
+
   render() {
     return (
-      <main className="container">
-        <button type="button" onClick={ ()=> this.addMore()} className="more-cards">Load more cards</button>
-        <section className="card-container">
-          {this.state.topRated ? (
-            this.state.topRated.map((movie, idx) => (
-              <Card
-                data={movie}
-                key={movie.title + idx}
-                remove={(removed) => this.remove(removed)}
-              />
-            ))
-          ) : (
-            <h2> Loading... </h2>
-          )}
-        </section>
-      </main>
+      <>
+        <Header search={(searched)=> this.searching(searched)} />
+
+        <main className="container">
+          <button
+            type="button"
+            onClick={() => this.addMore()}
+            className="more-cards"
+          >
+            Load more cards
+          </button>
+          <section className="card-container">
+            {this.state.topRated ? (
+              this.state.topRated.map((movie, idx) => (
+                <Card
+                  data={movie}
+                  key={movie.title + idx}
+                  remove={(removed) => this.remove(removed)}
+                />
+              ))
+            ) : (
+              <h2> Loading... </h2>
+            )}
+          </section>
+        </main>
+      </>
     );
   }
 }
