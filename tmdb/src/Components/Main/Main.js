@@ -9,6 +9,7 @@ class Main extends Component {
     this.state = {
       topRated: null,
       page: 1,
+      action:false
     };
   }
 
@@ -56,15 +57,15 @@ class Main extends Component {
   }
 
   searching(searched) {
-    if (this.state.topRated && this.state.topRated !== "") {
+    if (this.state.topRated) {
       let searchedList = this.state.topRated.filter((movie) =>
         movie.title.toLowerCase().includes(searched.toLowerCase())
       );
       console.log(searchedList);
       if(searchedList.length === 0){
-        this.setState({ topRated: "" });
+        this.setState({ topRated: null, action: true });
       }else{
-        this.setState({ topRated: searchedList });
+        this.setState({ topRated: searchedList, action: true });
       }
     }
   }
@@ -78,15 +79,12 @@ class Main extends Component {
           <button
             type="button"
             onClick={() => this.addMore()}
-            className={`${this.state.topRated === "" ? "empty": "more-cards"}`}
+            className={`${!this.state.topRated ? "empty": "more-cards"}`}
           >
             Load more cards
           </button>
           <section className="card-container">
             {this.state.topRated ? (
-              this.state.topRated === "" ? (
-                <h2>There are no results for your search</h2>
-              ):
               this.state.topRated.map((movie, idx) => (
                 <Card
                   data={movie}
@@ -95,7 +93,10 @@ class Main extends Component {
                 />
               ))
             ) : (
+              !this.state.action?
               <h2> Loading... </h2>
+              :
+              <h2>There are no results for your search</h2>
             )}
           </section>
         </main>
