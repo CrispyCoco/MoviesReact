@@ -29,3 +29,7 @@
     background-color: rgb(221, 110, 224) !important;
     cursor: pointer;
 }
+
+.empty{
+    display: none;
+}
