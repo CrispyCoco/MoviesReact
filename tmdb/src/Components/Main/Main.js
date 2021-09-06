@@ -38,22 +38,23 @@ class Main extends Component {
   addMore() {
     this.setState({
       page: this.state.page + 1,
+    },()=>{
+      if (this.state.topRated) {
+        fetch(
+          "https://api.themoviedb.org/3/movie/top_rated?api_key=9dec800f789f21e12920e46fc4882908&page=" +
+            this.state.page
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+  
+            this.setState({
+              topRated: this.state.topRated.concat(data.results),
+            });
+          })
+          .catch((error) => console.log(error));
+      }
     });
-    if (this.state.topRated) {
-      fetch(
-        "https://api.themoviedb.org/3/movie/top_rated?api_key=9dec800f789f21e12920e46fc4882908&page=" +
-          this.state.page
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-
-          this.setState({
-            topRated: this.state.topRated.concat(data.results),
-          });
-        })
-        .catch((error) => console.log(error));
-    }
   }
 
   searching(searched) {
