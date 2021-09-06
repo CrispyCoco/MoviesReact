@@ -42,10 +42,16 @@
 }
 
 .description{
-    max-height: 15vh;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
+  font-size:1rem;
+  
+  overflow:hidden;
+  line-height: 1.5rem;
+  max-height: 8rem;
+  /* Tres puntitos */
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4;
 }
 .card p{
     color: rgb(177, 177, 177);
