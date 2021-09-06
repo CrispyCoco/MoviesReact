@@ -23,7 +23,7 @@ class Header extends Component{
     render(){
         return( 
         <header>
-            <h1>ChillMe</h1>
+            <h1> <a href="/">ChillMe</a></h1>
             <section>
                 <i className="fas fa-th"></i>
                 <i className="fas fa-align-justify"></i>
