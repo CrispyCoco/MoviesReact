@@ -6,15 +6,15 @@ class Card extends Component {
     super(props);
     this.state = {
       viewMore: false,
-      text: 'Ver más'
+      text: 'View more'
     };
   }
 
   moreInfo() {
     if (this.state.viewMore) {
-      this.setState({ viewMore: false, text: 'Ver más'});
+      this.setState({ viewMore: false, text: 'View more'});
     } else {
-      this.setState({ viewMore: true, text: 'Ver menos' });
+      this.setState({ viewMore: true, text: 'View less' });
     }
   }
 
@@ -41,7 +41,7 @@ class Card extends Component {
             }`}
           >
             <p>
-              <strong>Rating:</strong> {this.props.data.vote_average}/5
+              <strong>Rating:</strong> {this.props.data.vote_average}/10
             </p>
             <p>
               <strong>Premiere:</strong> {this.props.data.release_date}

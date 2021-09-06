@@ -56,7 +56,7 @@ class Main extends Component {
   render() {
     return (
       <main className="container">
-        <button type="button" onClick={ ()=> this.addMore()} className="more-cards">Cargar más tarjetas</button>
+        <button type="button" onClick={ ()=> this.addMore()} className="more-cards">Load more cards</button>
         <section className="card-container">
           {this.state.topRated ? (
             this.state.topRated.map((movie, idx) => (
