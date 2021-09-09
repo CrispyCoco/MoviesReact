@@ -13,7 +13,7 @@
 }
 .navigation{
     height:20px;
-    display:flex;
+    display:none;
     justify-content: space-between;
     margin-bottom: 6px
 }
@@ -81,4 +81,48 @@
 
 .hide{
     display: none;
+}
+
+/************************************************************************************************************/ 
+
+.horizontal-card{
+    width:100%;
+    margin:10px 0;
+    background-color:rgba(57, 55, 63, 0.445);
+    border-radius: 10px;
+    /* padding:10px 10px; */
+    overflow:hidden;
+    /* min-height: 100vh; */
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.navigation-flex{
+    height:20px;
+    display:flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.horizontal-card main{
+    display: grid;
+    grid-template-columns: 12% 54% 34%;
+}
+
+.horizontal-card .description{
+    display: none;
+
+}
+
+.horizontal-card img{
+    width: 100%;
+}
+
+.horizontal-card h3{
+    font-size: 25px;
+    color:white;
+    min-height: 10vh;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
 }

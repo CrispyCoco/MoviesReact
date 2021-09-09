@@ -89,7 +89,7 @@ class Main extends Component {
           >
             Load more cards
           </button>
-          <section className="card-container">
+          <section className="changing-flex">
             {this.state.topRated ? (
               this.state.topRated.map((movie, idx) => (
                 <Card

@@ -20,7 +20,7 @@ class Card extends Component {
 
   render() {
     return (
-      <article className="card">
+      <article className="horizontal-card">
         <section className="navigation">
           <div>
             <i className="fas fa-chevron-left"></i>
@@ -53,6 +53,13 @@ class Card extends Component {
           {/* <a href="vhuv">Ver más </a> */}
           <p className="more" onClick={ ()=> this.moreInfo() }> {this.state.text} </p>
         </main>
+        <section className="navigation-flex">
+          <div>
+            <i className="fas fa-chevron-left"></i>
+            <i className="fas fa-chevron-right"></i>
+          </div>
+          <i className="far fa-trash-alt" onClick={()=>this.props.remove(this.props.data.id)}></i>
+        </section>
       </article>
     );
   }
