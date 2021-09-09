@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Card from "../Card/Card";
 import Header from "../Header/Header";
+import FilterField from "../FilterField/FilterField";
 import "./main.css";
 
 class Main extends Component {
@@ -71,12 +72,21 @@ class Main extends Component {
     }
   }
 
+  filterMovies(filterText){
+    let filteredMovies = this.state.initialMovies.filter(movies=>movies.title.toLowerCase().includes(filterText.toLowerCase()));
+
+    this.setState({
+      movies: filteredMovies
+    })
+  }
+
   render() {
     return (
       <>
         <Header search={(searched)=> this.searching(searched)} />
 
         <main className="container">
+        <FilterField filterMovies={ (filterText)=>this.filterMovies(filterText)}/>
           <button
             type="button"
             onClick={() => this.addMore()}
