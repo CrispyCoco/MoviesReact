@@ -107,7 +107,8 @@ class Main extends Component {
               !this.state.action?
               <h2> Loading... </h2>
               :
-              <h2>There are no results for your search</h2>
+              <h2>There are no results for your search
+              </h2>
             )}
           </section>
         </main>
