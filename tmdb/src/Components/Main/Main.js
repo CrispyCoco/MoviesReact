@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Card from "../Card/Card";
 import Header from "../Header/Header";
-import FilterField from "../FilterField/FilterField";
 import "./main.css";
 
 class Main extends Component {
@@ -9,6 +8,7 @@ class Main extends Component {
     super();
     this.state = {
       topRated: null,
+      initialMovies: null,
       page: 1,
       action:false
     };
@@ -24,6 +24,7 @@ class Main extends Component {
         console.log(data);
         this.setState({
           topRated: data.results,
+          initialMovies: data.results,
         });
       })
       .catch((error) => console.log(error));
@@ -51,6 +52,7 @@ class Main extends Component {
   
             this.setState({
               topRated: this.state.topRated.concat(data.results),
+              initialMovies: this.state.initialMovies.concat(data.results),
             });
           })
           .catch((error) => console.log(error));
@@ -59,11 +61,11 @@ class Main extends Component {
   }
 
   searching(searched) {
-    if (this.state.topRated) {
-      let searchedList = this.state.topRated.filter((movie) =>
+    if (this.state.topRated || this.state.action) {
+      let searchedList = this.state.initialMovies.filter((movie) =>
         movie.title.toLowerCase().includes(searched.toLowerCase())
       );
-      console.log(searchedList);
+      console.log(this.state.topRated);
       if(searchedList.length === 0){
         this.setState({ topRated: null, action: true });
       }else{
@@ -72,13 +74,6 @@ class Main extends Component {
     }
   }
 
-  filterMovies(filterText){
-    let filteredMovies = this.state.initialMovies.filter(movies=>movies.title.toLowerCase().includes(filterText.toLowerCase()));
-
-    this.setState({
-      movies: filteredMovies
-    })
-  }
 
   render() {
     return (
@@ -86,7 +81,7 @@ class Main extends Component {
         <Header search={(searched)=> this.searching(searched)} />
 
         <main className="container">
-        <FilterField filterMovies={ (filterText)=>this.filterMovies(filterText)}/>
+
           <button
             type="button"
             onClick={() => this.addMore()}
