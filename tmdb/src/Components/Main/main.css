@@ -46,3 +46,8 @@
     width: 80%;
 
 }
+
+i:hover{
+    cursor: pointer;
+    color:rgb(221, 110, 224)
+}

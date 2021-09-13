@@ -22,10 +22,12 @@
     width:25px;
 }
 .fa-chevron-left:hover{
-    color:gray
+    cursor: pointer;
+    color:rgb(221, 110, 224);
 }
 .fa-chevron-right:hover{
-    color:gray
+    cursor: pointer;
+    color:rgb(221, 110, 224);
 }
 .fa-trash-alt:hover{
     cursor: pointer;
@@ -129,12 +131,12 @@
     width:30%
 }
 .fa-chevron-up:hover{
-    color:gray;
+    color:rgb(221, 110, 224);
     cursor: pointer;
 
 }
 .fa-chevron-down:hover{
-    color:gray;
+    color:rgb(221, 110, 224);
     cursor: pointer;
 
 }
