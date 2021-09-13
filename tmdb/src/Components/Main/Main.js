@@ -10,7 +10,8 @@ class Main extends Component {
       topRated: null,
       initialMovies: null,
       page: 1,
-      action:false
+      action:false,
+      normal:true,
     };
   }
 
@@ -75,10 +76,19 @@ class Main extends Component {
   }
 
 
+  changeOrientation(status){
+    if (status){
+      this.setState({normal:false})
+    }else{
+      this.setState({normal:true})
+    }
+  }
+
   render() {
     return (
       <>
-        <Header search={(searched)=> this.searching(searched)} />
+        <Header search={(searched)=> this.searching(searched)} change={(status)=> this.changeOrientation(status)} direction={this.state.normal}  />
+
 
         <main className="container">
 
@@ -89,14 +99,16 @@ class Main extends Component {
           >
             Load more cards
           </button>
-          <section className="changing-flex">
+          <section className={this.state.normal?`card-container`: `changing-flex`}>
             {this.state.topRated ? (
               this.state.topRated.map((movie, idx) => (
                 <Card
                   data={movie}
                   key={movie.title + idx}
                   remove={(removed) => this.remove(removed)}
+                  orientation={this.state.normal}
                 />
+
               ))
             ) : (
               !this.state.action?

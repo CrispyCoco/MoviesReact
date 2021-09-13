@@ -4,7 +4,8 @@ class Header extends Component{
     constructor(props){
         super(props)
         this.state= {
-            value:''
+            value:'',
+            status:''
         }
     }
 
@@ -25,8 +26,7 @@ class Header extends Component{
         <header>
             <h1> <a href="/">ChillMe</a></h1>
             <section>
-                <i className="fas fa-th"></i>
-                <i className="fas fa-align-justify"></i>
+                {!this.props.direction? <i className="fas fa-th" onClick={()=> this.props.change(this.props.direction)}></i>: <i className="fas fa-align-justify" onClick={()=> this.props.change(this.props.direction)}></i>}
                 <form action="" id="search-form" onSubmit={(event)=> this.preventSubmit(event)}> 
                     <input type="text" name="search" id="input_buscar" placeholder="Search" value={`${this.state.value}`} onChange={(event)=>this.controlChanges(event)}/>
                     {/* <button type="submit"><i className="fas fa-search"></i></button> */}
