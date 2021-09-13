@@ -34,7 +34,10 @@ class Main extends Component {
   remove(removed) {
     if (this.state.topRated) {
       let newList = this.state.topRated.filter((movie) => movie.id !== removed);
-      this.setState({ topRated: newList });
+      this.setState({ 
+        topRated: newList,
+        initialMovies: newList, 
+      });
     }
   }
 
