@@ -7,7 +7,6 @@ class Card extends Component {
     this.state = {
       viewMore: false,
       text: "View more",
-      disp: false,
     };
   }
 
@@ -18,12 +17,6 @@ class Card extends Component {
       this.setState({ viewMore: true, text: "View less" });
     }
   }
-  dispMore() {
-    this.setState({
-      dispMore: true,
-    });
-  }
-
   render() {
     return (
       <>

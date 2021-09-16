@@ -12,6 +12,8 @@ class Main extends Component {
       page: 1,
       action:false,
       normal:true,
+      asc: false,
+      default: true
     };
   }
 
@@ -53,11 +55,46 @@ class Main extends Component {
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
-  
-            this.setState({
-              topRated: this.state.topRated.concat(data.results),
-              initialMovies: this.state.initialMovies.concat(data.results),
-            });
+            let newList = this.state.topRated.concat(data.results)
+              if(!this.state.asc && !this.state.default){
+                this.setState({
+                  topRated: newList.sort((a, b) => {
+                    let nameA = a.title.toLowerCase();
+                    let nameB = b.title.toLowerCase();
+                    if (nameA < nameB) {
+                      return 1;
+                    }
+                    if (nameA > nameB) {
+                      return -1;
+                    }
+                    return 0;
+                  }),
+                  initialMovies: this.state.initialMovies.concat(data.results),
+                  asc: false,
+                });
+              } else if(this.state.asc){
+                this.setState({
+                  topRated: newList.sort((a, b) => {
+                    let nameA = a.title.toLowerCase();
+                    let nameB = b.title.toLowerCase();
+                    if (nameA < nameB) {
+                      return -1;
+                    }
+                    if (nameA > nameB) {
+                      return 1;
+                    }
+                    return 0;
+                  }),
+                  initialMovies: this.state.initialMovies.concat(data.results),
+                  asc: true
+                });
+              } else{
+                this.setState({
+                  topRated: newList,
+                  initialMovies: this.state.initialMovies.concat(data.results),
+                })
+              }
+             
           })
           .catch((error) => console.log(error));
       }
@@ -79,18 +116,53 @@ class Main extends Component {
   }
 
 
-  changeOrientation(status){
-    if (status){
+  changeOrientation(){
+    if (this.state.normal){
       this.setState({normal:false})
     }else{
       this.setState({normal:true})
     }
   }
 
+  changeOrder(){
+    if (!this.state.asc) {
+        this.setState({
+          asc: true,
+          topRated: this.state.topRated.sort((a, b) => {
+            let nameA = a.title.toLowerCase();
+            let nameB = b.title.toLowerCase();
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+            return 0;
+          }),
+          default: false
+        })
+    }else{
+      this.setState({
+        asc: false,
+        topRated: this.state.topRated.sort((a, b) => {
+          let nameA = a.title.toLowerCase();
+          let nameB = b.title.toLowerCase();
+          if (nameA > nameB) {
+            return -1;
+          }
+          if (nameA < nameB) {
+            return 1;
+          }
+          return 0;
+        }),
+        default: false
+      })
+    }
+  }
   render() {
     return (
       <>
-        <Header search={(searched)=> this.searching(searched)} change={(status)=> this.changeOrientation(status)} direction={this.state.normal}  />
+        <Header search={(searched)=> this.searching(searched)} change={()=> this.changeOrientation()} direction={this.state.normal} sort={()=> this.changeOrder()} />
 
 
         <main className="container">
