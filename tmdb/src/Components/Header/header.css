@@ -58,9 +58,14 @@ section{
     cursor: pointer;
 }
 .reverse{
-    display: none;
+    /* display: none; */
     background-color: white;
     padding: 10px 20px;
     border-radius:30px;
     color: rgb(223, 0, 231)
+}
+
+.reverse:hover{
+    background-color: rgba(255, 255, 255, 0.904) !important;
+    cursor: pointer;
 }

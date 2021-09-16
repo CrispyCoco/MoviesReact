@@ -162,7 +162,7 @@ class Main extends Component {
   render() {
     return (
       <>
-        <Header search={(searched)=> this.searching(searched)} change={()=> this.changeOrientation()} direction={this.state.normal} sort={()=> this.changeOrder()} />
+        <Header search={(searched)=> this.searching(searched)} change={()=> this.changeOrientation()} direction={this.state.normal} sort={()=> this.changeOrder()} asc={this.state.asc} />
 
 
         <main className="container">

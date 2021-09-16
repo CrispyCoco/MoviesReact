@@ -32,8 +32,12 @@ class Header extends Component{
                     <input type="text" name="search" id="input_buscar" placeholder="Search" value={`${this.state.value}`} onChange={(event)=>this.controlChanges(event)}/>
                     {/* <button type="submit"><i className="fas fa-search"></i></button> */}
                 </form>
+                {this.props.asc? (
+                <span className="reverse" onClick={() => this.props.sort()}><span uk-icon="icon: chevron-down" className="iconUK"></span>DESC</span>
+
+                ):(
                 <span className="normal" onClick={() => this.props.sort()}><span uk-icon="icon: chevron-up" className="iconUK" ></span>ASC</span>
-                <span className="reverse"><span uk-icon="icon: chevron-down" className="iconUK"></span>DESC</span>
+                )}
             </section>
           </header>
         )
