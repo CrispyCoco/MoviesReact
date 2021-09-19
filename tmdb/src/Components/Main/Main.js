@@ -28,6 +28,7 @@ class Main extends Component {
         this.setState({
           topRated: data.results,
           initialMovies: data.results,
+          page: 2
         });
       })
       .catch((error) => console.log(error));
@@ -44,11 +45,6 @@ class Main extends Component {
   }
 
   addMore() {
-    this.setState(
-      {
-        page: this.state.page + 1,
-      },
-      () => {
         if (this.state.topRated) {
           fetch(
             "https://api.themoviedb.org/3/movie/top_rated?api_key=9dec800f789f21e12920e46fc4882908&page=" +
@@ -73,6 +69,7 @@ class Main extends Component {
                   }),
                   initialMovies: this.state.initialMovies.concat(data.results),
                   asc: false,
+                  page: this.state.page +1
                 });
               } else if (this.state.asc) {
                 this.setState({
@@ -89,18 +86,18 @@ class Main extends Component {
                   }),
                   initialMovies: this.state.initialMovies.concat(data.results),
                   asc: true,
+                  page: this.state.page +1
                 });
               } else {
                 this.setState({
                   topRated: newList,
                   initialMovies: this.state.initialMovies.concat(data.results),
+                  page: this.state.page +1
                 });
               }
             })
             .catch((error) => console.log(error));
         }
-      }
-    );
   }
 
   searching(searched) {
