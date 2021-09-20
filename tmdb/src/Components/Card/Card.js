@@ -76,11 +76,11 @@ class Card extends Component {
                   {/* <a href="vhuv">Ver más </a> */}
                   <section className="navigation-flex">
                     <div>
-                      <i className="fas fa-chevron-up fa-lg"></i>
-                      <i className="fas fa-chevron-down fa-lg"></i>
+                      <i className="fas fa-chevron-up "></i>
+                      <i className="fas fa-chevron-down "></i>
                     </div>
                     <i
-                      className="far fa-trash-alt fa-lg"
+                      className="far fa-trash-alt"
                       onClick={() => this.props.remove(this.props.data.id)}
                     ></i>
                   </section>

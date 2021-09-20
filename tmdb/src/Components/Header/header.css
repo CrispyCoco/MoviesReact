@@ -1,9 +1,12 @@
-header{
+.pc{
     display: grid;
     grid-template-columns: 30% 70%;
     height:85px;
     background-color:black;
     align-items: center;
+}
+.mobile{
+    display: none;
 }
 h1{
     margin: 0;
@@ -27,7 +30,9 @@ section{
     justify-content: space-around;
     align-items: center;
 }
-
+#search-form{
+    width: 50%
+}
 #input_buscar {
     border: rgba(128, 128, 128, 0.616) solid 1px;
     border-radius: 8px;
@@ -38,7 +43,7 @@ section{
     justify-self: center;
 
     font-size: 14px;
-    width: 450px;
+    width: 100%;
     height: 30px;
     padding-left: 5px;
 
@@ -68,4 +73,33 @@ section{
 .reverse:hover{
     background-color: rgba(255, 255, 255, 0.904) !important;
     cursor: pointer;
+}
+
+
+@media only screen and (max-width: 400px){
+ .pc{
+     display: none;
+ }   
+ .mobile{
+     display: flex;
+     align-items: center;
+     height:60px;
+     justify-content: space-around;
+ }
+ .menu{
+     border: none;
+ }
+ #search-form{
+     width: 50%;
+ }
+ #input_buscar{
+     margin: 0;
+ }
+ .asc{
+     margin-top: 30px;
+ }
+ .uk-active h1 a{
+    color: rgb(223, 0, 231);
+     
+ }
 }
