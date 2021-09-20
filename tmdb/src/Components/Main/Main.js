@@ -101,15 +101,11 @@ class Main extends Component {
   }
 
   searching(searched) {
-    if (this.state.topRated || this.state.action) {
+    if (this.state.topRated) {
       let searchedList = this.state.initialMovies.filter((movie) =>
         movie.title.toLowerCase().includes(searched.toLowerCase())
       );
-      console.log(this.state.topRated);
-      if (searchedList.length === 0) {
-        this.setState({ topRated: null, action: true });
-      } else {
-        this.setState({ topRated: searchedList, action: true });
+        this.setState({ topRated: searchedList});
       }
     }
   }
@@ -180,6 +176,7 @@ class Main extends Component {
             className={this.state.normal ? `card-container` : `changing-flex`}
           >
             {this.state.topRated ? (
+              this.topRated.length !== 0?(
               this.state.topRated.map((movie, idx) => (
                 <Card
                   data={movie}
@@ -187,11 +184,11 @@ class Main extends Component {
                   remove={(removed) => this.remove(removed)}
                   orientation={this.state.normal}
                 />
-              ))
-            ) : !this.state.action ? (
-              <h2> Loading... </h2>
-            ) : (
+              ))):(
               <h2>There are no results for your search</h2>
+              )
+            ) : (
+              <h2> Loading... </h2>
             )}
           </section>
         </main>
