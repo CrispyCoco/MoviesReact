@@ -58,8 +58,7 @@ class Card extends Component {
               </section>
               {/* <a href="vhuv">Ver más </a> */}
               <p className="more" onClick={() => this.moreInfo()}>
-                {" "}
-                {this.state.text}{" "}
+                {this.state.text}
               </p>
             </main>
           </article>
