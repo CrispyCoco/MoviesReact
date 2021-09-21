@@ -28,7 +28,7 @@ class Header extends Component{
                 <header className="pc">
                     <h1> <a href="/">ChillMe</a></h1>
                     <section>
-                        {!this.props.direction? <i className="fas fa-th" onClick={()=> this.props.change()}></i>: <i className="fas fa-align-justify" onClick={()=> this.props.change(this.props.direction)}></i>}
+                        {!this.props.direction? <i className="fas fa-th" onClick={()=> this.props.change()}></i>: <i className="fas fa-align-justify" onClick={()=> this.props.change()}></i>}
                         <form action="" id="search-form" onSubmit={(event)=> this.preventSubmit(event)}> 
                             <input type="text" name="search" id="input_buscar" placeholder="Search" value={`${this.state.value}`} onChange={(event)=>this.controlChanges(event)}/>
                             {/* <button type="submit"><i className="fas fa-search"></i></button> */}
